@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Parent Dashboard | School Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body class="dashboard-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <span class="navbar-brand fw-bold">Parent Dashboard</span>
+    <button class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</button>
+  </nav>
+
+  <div class="container py-5">
+
+    <h4 class="text-center text-light mb-4">Welcome Parent</h4>
+
+    <!-- ACTION CARDS -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-3">
+        <button class="action-card w-100 border-0" id="childProfileBtn">
+          👧 My Child
+        </button>
+      </div>
+
+      <div class="col-md-3">
+        <button class="action-card w-100 border-0" id="attendanceBtn">
+          📋 Attendance
+        </button>
+      </div>
+
+      <div class="col-md-3">
+        <button class="action-card w-100 border-0" id="commentsBtn">
+          💬 Comments
+        </button>
+      </div>
+    </div>
+
+    <!-- CHILD PROFILE -->
+    <div id="childProfileSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Child Profile</h5>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Name:</strong> <span id="cName"></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Email:</strong> <span id="cEmail"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ATTENDANCE -->
+    <div id="attendanceSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Attendance & Marks</h5>
+
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Attendance %</th>
+            </tr>
+          </thead>
+          <tbody id="attendanceTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div id="commentsSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Comments</h5>
+
+        <form id="commentForm" class="mb-3">
+          <textarea
+            id="commentText"
+            class="form-control"
+            placeholder="Write your comment..."
+            required></textarea>
+
+          <button type="submit" class="btn btn-primary mt-2">
+            Submit
+          </button>
+        </form>
+
+        <div id="commentsList"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPTS (ORDER MATTERS) -->
+  <script src="js/auth.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/comment.js"></script>
+  <script src="js/parent.js"></script>
+
+  <script>
+    if (!localStorage.getItem("token")) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+

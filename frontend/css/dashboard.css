@@ -1,0 +1,45 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c3e50, #4b6584);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Action cards */
+.action-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover {
+  transform: scale(1.05);
+}
+
+/* Glass cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+}
+
+body {
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.fullscreen-image {
+  position: fixed;          /* stays on screen */
+  top: 0;
+  left: 0;
+  width: 100vw;             /* full viewport width */
+  height: 100vh;            /* full viewport height */
+  object-fit: cover;        /* cover entire screen */
+  opacity: 0.12;            /* background-like effect */
+  z-index: -1;              /* behind all content */
+  pointer-events: none;     /* clickable elements work */
+}
+

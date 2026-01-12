@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Dashboard | School Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body class="dashboard-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <span class="navbar-brand fw-bold">Student Dashboard</span>
+    <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="container py-5">
+
+    <h4 class="text-center text-light mb-4">Welcome Student</h4>
+
+    <!-- ACTION CARDS -->
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-3">
+        <div class="action-card" onclick="loadProfile()">
+          👤 My Profile
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="action-card" onclick="loadAttendance()">
+          📋 My Attendance
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PROFILE -->
+    <div id="profileSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">My Profile</h5>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Name:</strong> <span id="pName"></span></li>
+          <li class="list-group-item"><strong>Email:</strong> <span id="pEmail"></span></li>
+          <li class="list-group-item"><strong>Role:</strong> <span id="pRole"></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ATTENDANCE -->
+    <div id="attendanceSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">My Attendance</h5>
+        <table class="table table-sm">
+          <thead>
+  <tr>
+    <th>Subject</th>
+    <th>Marks</th>
+    <th>Attendance %</th>
+  </tr>
+</thead>
+
+          
+          <tbody id="attendanceTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/attendance.js"></script>
+  <script src="js/student.js"></script>
+
+</body>
+</html>
+

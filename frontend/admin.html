@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard | School Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body class="dashboard-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <span class="navbar-brand fw-bold">Admin Panel</span>
+    <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="container py-5">
+
+    <h4 class="text-center text-light mb-4">Admin Actions</h4>
+
+    <!-- ACTION CARDS -->
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-3">
+        <div class="action-card" onclick="showSection('addStudentSection')">
+          ➕ Add Student
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="action-card" onclick="showSection('addParentSection')">
+          👨‍👩‍👧 Add Parent
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="action-card" onclick="showSection('addTeacherSection')">
+          👩‍🏫 Add Teacher
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="action-card" onclick="loadStudents()">
+          👁️ View Students
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===============================
+         ADD STUDENT (UPDATED ✅)
+         =============================== -->
+    <div id="addStudentSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Add Student</h5>
+
+        <form onsubmit="addStudent(event)">
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <input id="studentName" class="form-control" placeholder="Student Name" required />
+            </div>
+
+            <div class="col-md-6">
+              <input id="studentEmail" type="email" class="form-control" placeholder="Student Email" required />
+            </div>
+
+            <div class="col-md-6">
+              <input id="studentPassword" type="password" class="form-control" placeholder="Password" required />
+            </div>
+
+            <div class="col-md-6">
+              <input id="studentRoll" class="form-control" placeholder="Roll Number" required />
+            </div>
+
+            <div class="col-md-6">
+              <input id="studentDepartment" class="form-control" placeholder="Department (e.g. CSE)" required />
+            </div>
+
+            <div class="col-md-6">
+              <input id="studentYear" type="number" min="1" max="4"
+                     class="form-control" placeholder="Year (1–4)" required />
+            </div>
+
+            <!-- 🆕 ASSIGN TEACHER -->
+            <div class="col-md-12">
+              <select id="studentTeacherId" class="form-control" required>
+                <option value="">-- Select Teacher --</option>
+              </select>
+            </div>
+
+          </div>
+
+          <button class="btn btn-primary mt-4 w-100">Add Student</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===============================
+         ADD PARENT
+         =============================== -->
+    <div id="addParentSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Add Parent</h5>
+
+        <form onsubmit="addParent(event)">
+          <input id="parentName" class="form-control mb-3" placeholder="Parent Name" required />
+          <input id="parentEmail" type="email" class="form-control mb-3" placeholder="Parent Email" required />
+          <input id="parentPassword" type="password" class="form-control mb-3" placeholder="Password" required />
+          <input id="parentPhone" class="form-control mb-3" placeholder="Phone (optional)" />
+
+          <select id="parentStudentId" class="form-control mb-3" required>
+            <option value="">-- Select Student --</option>
+          </select>
+
+          <button class="btn btn-primary w-100">Add Parent</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===============================
+         ADD TEACHER
+         =============================== -->
+    <div id="addTeacherSection" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Add Teacher</h5>
+
+        <form onsubmit="addTeacher(event)">
+          <input id="teacherName" class="form-control mb-3" placeholder="Teacher Name" required />
+          <input id="teacherEmail" type="email" class="form-control mb-3" placeholder="Teacher Email" required />
+          <input id="teacherPassword" type="password" class="form-control mb-3" placeholder="Password" required />
+          <input id="teacherDepartment" class="form-control mb-3" placeholder="Department (e.g. CSE)" required />
+
+          <button class="btn btn-primary w-100">Add Teacher</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===============================
+         VIEW STUDENTS
+         =============================== -->
+    <div id="studentList" class="card glass-card mt-5 d-none">
+      <div class="card-body">
+        <h5 class="mb-3">Students</h5>
+
+        <table class="table table-sm table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Roll No</th>
+              <th>Department</th>
+              <th>Year</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+</html>
+

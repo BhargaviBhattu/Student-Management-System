@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | School Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="auth-page">
+
+   <!-- Logo -->
+      <img src="assets/bg-image.png" class="fullscreen-image" alt="Background">
+
+  <!-- Dark overlay -->
+  <div class="overlay"></div>
+
+  <!-- Center Login Card -->
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="card auth-card p-4">
+
+     
+
+
+      <!-- Dynamic Role Title -->
+      <h5 class="text-center mb-4" id="roleTitle">
+        Login
+      </h5>
+
+      <!-- Login Form -->
+      <form onsubmit="login(event)">
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Login
+        </button>
+
+      </form>
+
+      <!-- Back to Landing Page -->
+      <div class="text-center mt-3">
+        <a href="index.html" class="text-decoration-none small">
+          ← Back to role selection
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+
+  <script>
+    /*
+      ROLE-AWARE LOGIN LOGIC
+      ---------------------
+      - User MUST come from landing page
+      - Landing page stores selectedRole
+      - If role missing → redirect back
+    */
+
+    const role = localStorage.getItem("selectedRole");
+
+    if (!role) {
+      // User opened login.html directly
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("roleTitle").innerText =
+        "Login as " + role;
+    }
+  </script>
+
+</body>
+</html>
+
+
