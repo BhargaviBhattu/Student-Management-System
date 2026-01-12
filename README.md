@@ -8,7 +8,7 @@ A full-stack Student Management System designed to manage academic records and c
 - Teacher dashboard for managing assigned students and academic records
 - Student dashboard to view attendance and academic details
 - Parent dashboard to track child attendance and communicate with teachers
-- Attendance and marks management with smart add/update logic
+- Attendance and marks management with smart update logic
 - Secure RESTful API architecture
 
 ## 🛠 Tech Stack
@@ -67,6 +67,7 @@ A full-stack Student Management System designed to manage academic records and c
 - Foreign key relationships between users, students, teachers, and parents
 - Secure data access with role-based constraints
 - Optimized queries for dashboards and reports
+
 
 
 
