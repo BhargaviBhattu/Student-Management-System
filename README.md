@@ -12,18 +12,22 @@ A full-stack Student Management System designed to manage academic records and c
 - Secure RESTful API architecture
 
 ## 🛠 Tech Stack
+
 **Frontend**
 - HTML5
 - CSS3
 - JavaScript
 - Bootstrap
+  
 **Backend**
 - Node.js
 - Express.js
 - REST APIs
+- 
 **Database**
 - MySQL
 - Relational Database Design (Joins, Foreign Keys)
+- 
 **Security**
 - JWT Authentication
 - Role-Based Access Control (RBAC)
@@ -52,7 +56,6 @@ A full-stack Student Management System designed to manage academic records and c
 - View child profile and attendance
 - Send comments or queries to teachers
 - View teacher replies
-- 
 ## 🔑 Authentication Flow
 - Users authenticate using JWT tokens
 - Tokens are validated using middleware
@@ -64,6 +67,7 @@ A full-stack Student Management System designed to manage academic records and c
 - Foreign key relationships between users, students, teachers, and parents
 - Secure data access with role-based constraints
 - Optimized queries for dashboards and reports
+
 
 
 
